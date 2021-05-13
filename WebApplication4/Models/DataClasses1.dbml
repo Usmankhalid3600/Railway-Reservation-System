@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Database1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Database1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ticket" Member="tickets">
+    <Type Name="ticket">
+      <Column Name="ticketId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ticketClass" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ticketPrice" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="trainId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="passengerId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="train_ticket" Member="train" ThisKey="trainId" OtherKey="trainId" Type="train" IsForeignKey="true" />
+      <Association Name="passenger_ticket" Member="passenger" ThisKey="passengerId" OtherKey="passengerId" Type="passenger" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tStatus" Member="tStatus">
+    <Type Name="tStatus">
+      <Column Name="trainId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="businessSeats" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="economySeats" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="train_tStatus" Member="train" ThisKey="trainId" OtherKey="trainId" Type="train" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.train" Member="trains">
+    <Type Name="train">
+      <Column Name="trainId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="trainName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="sourceCity" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="destinationCity" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="seatsAvailability" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Association Name="train_ticket" Member="tickets" ThisKey="trainId" OtherKey="trainId" Type="ticket" />
+      <Association Name="train_tStatus" Member="tStatus" ThisKey="trainId" OtherKey="trainId" Type="tStatus" Cardinality="One" />
+      <Association Name="train_tcheck" Member="tcheck" ThisKey="trainId" OtherKey="trainId" Type="tcheck" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tcheck" Member="tchecks">
+    <Type Name="tcheck">
+      <Column Name="trainId" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bticket" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="eticket" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="train_tcheck" Member="train" ThisKey="trainId" OtherKey="trainId" Type="train" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.passenger" Member="passengers">
+    <Type Name="passenger">
+      <Column Name="passengerId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="passnegerName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="passenger_ticket" Member="tickets" ThisKey="passengerId" OtherKey="passengerId" Type="ticket" />
+    </Type>
+  </Table>
+</Database>
