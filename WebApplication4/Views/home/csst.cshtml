@@ -1,0 +1,55 @@
+﻿@model WebApplication4.Models.ticket
+
+@{
+    ViewBag.Title = "csst";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="~/scripts/css/divs.css" />
+    <title>Railway System</title>
+
+</head>
+<body>
+
+
+    <div class="top">Railway Reservation System </div>
+
+    <div class="work">
+        <form>
+
+            <h1>&nbsp;&nbsp;Reservation Details</h1>
+            <br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Ticket ID:&nbsp; </b>@Model.ticketId </label>
+            <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Passenger ID:&nbsp;</b> @Convert.ToString(Session["pid"])</label>
+            <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Passenger Name:&nbsp; </b> @Convert.ToString(Session["name"]) </label>
+            <br><br>
+            
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Ticket Class:&nbsp; </b>@Model.ticketClass </label>
+            <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Ticket Price:&nbsp; </b>@Model.ticketPrice </label>
+            <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Train Name:&nbsp;</b>@Convert.ToString(Session["tname"]) </label>
+             <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Departure City:&nbsp;</b> @Convert.ToString(Session["source"]) </label>
+            <br><br>
+            <label style="font-size:1.5em; margin-left:20px;"> <b>Destination City:&nbsp;</b>@Convert.ToString(Session["destination"]) </label>
+<br /><br /><br /><br />
+            <a style="color:black; font-size:2em;" href="/home/index"> &nbsp;&nbsp;Click to go back to main menu </a>
+        </form>
+    </div>
+
+    <div class="side"> <img src="~/Images/as.jpg" height=100% width=100% /> </div>
+
+    <div class="bottom"> </div>
+
+</body>
+</html>
+
+
+
+

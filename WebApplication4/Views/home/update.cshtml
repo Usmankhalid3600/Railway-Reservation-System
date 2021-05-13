@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <link rel="stylesheet" href="~/scripts/css/divs.css"/>
+  <title>Railway System</title>
+  <style>
+  .button {
+  background-color: black;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 30px;
+  display: inline-block;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 8px;
+ 
+}
+</style>
+    <script>
+        function numeric_check(event) {
+            var keychar;
+
+            keychar = event.key;
+
+
+            if ((("0123456789").indexOf(keychar) > -1))
+                return true;
+            else
+                alert("Only add numeric values")
+            return false;
+        }
+    </script>
+</head>
+<body>
+
+
+
+<div class="top">Railway Reservation System </div>
+
+<div class="work" > 
+
+
+
+
+
+<form action="/home/find1" method="post">
+<br>
+<center><h1>Update Reservation</h1>
+<br><br><br><br><br>
+<h3><label for="checknumber" >Enter Ticket Number </label>&nbsp;&nbsp;&nbsp;
+<input type="text" name="checknumber" size="30" onkeypress="return numeric_check(event);" required/>
+</h3>
+<br><br>
+<input type = "submit" class="button" value="Submit">
+</center>
+</form>
+
+
+
+
+ </div>
+
+<div class="side"> <img src="~/Images/as.jpg" height=100% width=100%/> </div>
+
+<div class="bottom"> </div>
+
+</body>
+</html>
+	
