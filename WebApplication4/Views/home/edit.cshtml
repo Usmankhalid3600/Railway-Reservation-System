@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "edit";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="~/scripts/css/divs.css" />
+    <title>Railway System</title>
+    <style>
+        .button {
+            background-color: black;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: inline-block;
+            margin-left: 4em;
+            font-size: 25px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+
+</head>
+<body>
+
+
+
+    <div class="top">Railway Reservation System </div>
+
+    <div class="work">
+
+
+
+        <form name="chk" action="/home/change" method="post">
+            <br>
+            <center><h1>Ticket Reservation</h1></center>
+            <br><br>
+            <label for="Name">&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="Name" size=30 required>
+            <br><br><br>
+            <label for="sourceCity">&nbsp;&nbsp;&nbsp;Select the departure city&nbsp;&nbsp;&nbsp;</label>
+            <select name="sourceCity" style="width:100px; height:30px;" required>
+                <option value="lahore">Lahore</option>
+                <option value="islamabad">Islamabad</option>
+                <option value="multan">Multan</option>
+                <option value="sargodha">Sargodha</option>
+            </select>
+            <br><br><br>
+            <label for="destination">&nbsp;&nbsp;&nbsp;Select the destination city&nbsp;&nbsp;&nbsp;</label>
+            <select name="destination" style="width:100px; height:30px; " required>
+                <option value="lahore">Lahore</option>
+                <option value="islamabad">Islamabad</option>
+                <option value="multan">Multan</option>
+                <option value="sargodha">Sargodha</option>
+            </select>
+            <br><br><br>
+            <label for="classs">&nbsp;&nbsp;&nbsp;Select Class&nbsp;&nbsp;&nbsp;</label>
+            <select name="classs" style="width:100px; height:30px;" required>
+                <option value="businessSeats">Business</option>
+                <option value="economySeats">Economy</option>
+            </select>
+            <br><br><br>
+            <section style="padding-left:60%; font-size:20px;"><label name=pcheck></label></section>
+            <input type=submit class="button" value="Click to Proceed">
+        </form>
+
+
+    </div>
+
+    <div class="side"> <img src="~/Images/as.jpg" height=100% width=100% /> </div>
+
+    <div class="bottom"> </div>
+
+</body>
+</html>
